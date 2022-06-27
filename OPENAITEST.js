@@ -18,8 +18,8 @@ var completion = async function (prompt){
   const response = await openai.createCompletion({
     model: "text-davinci-002",
     prompt: prompt,
-    max_tokens: 6,
-    temperature: 0,
+    max_tokens: 24,
+    temperature: 0.5,
   });
   console.log(response.data.choices[0].text)
   return "Done"
