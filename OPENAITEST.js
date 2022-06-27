@@ -6,8 +6,6 @@ const rl = require('readline').createInterface({
   output: process.stdout,
 });
 
-var userPrompt = ""
-
 const API_TOKEN = fs.readFileSync('OPEN_API_KEY.txt', 'utf8')
 
 const { Configuration, OpenAIApi } = require("openai");
@@ -24,16 +22,17 @@ var completion = async function (prompt){
     temperature: 0,
   });
   console.log(response.data.choices)
-  return
+  return "Done"
 }
 
 var Edit = async function (input, instructions){
-  const response = await openai.createEdit("text-davinci-edit-001", {
+  const response = await openai.createEdit({
+    model: "text-davinci-edit-001",
     input: input,
     instruction: instructions,
   });
-  console.log(response)
-  return
+  console.log(response.data.choices[0].text)
+  return "Done"
 }
 var input = ""
 
