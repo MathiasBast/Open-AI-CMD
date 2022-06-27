@@ -21,7 +21,7 @@ var completion = async function (prompt){
     max_tokens: 6,
     temperature: 0,
   });
-  console.log(response.data.choices)
+  console.log(response.data.choices[0].text)
   return "Done"
 }
 
@@ -34,6 +34,7 @@ var Edit = async function (input, instructions){
   console.log(response.data.choices[0].text)
   return "Done"
 }
+
 var input = ""
 
 const questioner = async function () {
